@@ -1,6 +1,6 @@
 #####################################################################################
 service=airenas/docker-kaldi-gstreamer-server
-version=0.1.0
+version=0.1.1
 ########### DOCKER ##################################################################
 tag=$(service):$(version)
 
@@ -12,3 +12,7 @@ dpush: dbuild
 #####################################################################################
 .PHONY:
 	dbuild dpush
+
+start/ssh: 
+	docker run -it -p 9090:80 -v $(CURDIR)/test:/opt/models $(tag) /bin/bash
+	# /opt/start.sh -y /opt/models/chain_nnet3.yaml

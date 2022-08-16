@@ -1,4 +1,4 @@
-FROM debian:9
+FROM debian:10
 MAINTAINER Eduardo Silva <zedudu@gmail.com>
 
 RUN apt-get update && apt-get install -y  \
@@ -77,3 +77,5 @@ COPY start.sh stop.sh /opt/
 
 RUN chmod +x /opt/start.sh && \
     chmod +x /opt/stop.sh 
+
+ENV LD_PRELOAD /opt/intel/mkl/lib/intel64/libmkl_def.so:/opt/intel/mkl/lib/intel64/libmkl_avx2.so:/opt/intel/mkl/lib/intel64/libmkl_core.so:/opt/intel/mkl/lib/intel64/libmkl_intel_lp64.so:/opt/intel/mkl/lib/intel64/libmkl_intel_thread.so:/opt/intel/lib/intel64_lin/libiomp5.so
