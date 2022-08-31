@@ -1,2 +1,4 @@
 test/**
 .vscode
+build/calc/Makefile.options
+build/calc/data
