@@ -73,7 +73,7 @@ RUN cd /opt/kaldi/tools && \
     rm -rf /opt/kaldi-gstreamer-server/.git/ && \
     rm -rf /opt/kaldi-gstreamer-server/test/
 
-COPY start.sh stop.sh /opt/
+COPY start.sh stop.sh start_service.sh /opt/
 
 RUN chmod +x /opt/start.sh && \
     chmod +x /opt/stop.sh 
