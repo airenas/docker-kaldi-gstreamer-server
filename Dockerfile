@@ -34,7 +34,8 @@ RUN apt-get update && apt-get install -y  \
     apt-get clean autoclean && \
     apt-get autoremove -y && \
     pip install ws4py==0.3.2 && \
-    pip install tornado && \    
+    pip install tornado && \
+    pip install requests && \       
     ln -s /usr/bin/python2.7 /usr/bin/python ; ln -s -f bash /bin/sh
 
 WORKDIR /opt
@@ -68,8 +69,11 @@ RUN cd /opt/kaldi/tools && \
     rm -rf /opt/kaldi/.git && \
     rm -rf /opt/kaldi/egs/ /opt/kaldi/windows/ /opt/kaldi/misc/ && \
     find /opt/kaldi/src/ -type f -not -name '*.so' -delete && \
-    find /opt/kaldi/tools/ -type f \( -not -name '*.so' -and -not -name '*.so*' \) -delete && \
-    cd /opt && git clone https://github.com/alumae/kaldi-gstreamer-server.git && \
+    find /opt/kaldi/tools/ -type f \( -not -name '*.so' -and -not -name '*.so*' \) -delete
+
+
+RUN cd /opt && \
+    git clone --branch v0.0.2-beta2 --depth 1 https://github.com/airenas/kaldi-gstreamer-server.git && \
     rm -rf /opt/kaldi-gstreamer-server/.git/ && \
     rm -rf /opt/kaldi-gstreamer-server/test/
 
