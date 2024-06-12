@@ -73,7 +73,7 @@ RUN cd /opt/kaldi/tools && \
 
 
 RUN cd /opt && \
-    git clone --branch v0.0.2-beta2 --depth 1 https://github.com/airenas/kaldi-gstreamer-server.git && \
+    git clone --branch v0.0.2 --depth 1 https://github.com/airenas/kaldi-gstreamer-server.git && \
     rm -rf /opt/kaldi-gstreamer-server/.git/ && \
     rm -rf /opt/kaldi-gstreamer-server/test/
 
